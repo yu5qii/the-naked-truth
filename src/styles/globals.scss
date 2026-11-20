@@ -1,0 +1,111 @@
+/* ==========================================================================
+   THE NAKED TRUTH — ULTRA-MINIMALIST EDITORIAL DESIGN SYSTEM
+   Inspired by Gil Huybrecht (gilhuybrecht.com)
+   Typography-First, High Contrast, Stark White on Deep Charcoal / Black
+   ========================================================================== */
+
+:root {
+  --bg-primary: #080808;
+  --bg-surface: #0e0e0e;
+  --bg-subtle: #141414;
+  --bg-elevated: #1a1a1a;
+
+  --text-primary: #ffffff;
+  --text-secondary: #d4d4d8;
+  --text-muted: #88888e;
+  --text-dim: #52525b;
+  --text-faint: #3f3f46;
+
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.16);
+  --border-hairline: 1px solid var(--border-subtle);
+
+  --accent-left: #7dd3fc;   /* Subdued glacial blue for Left perspective metadata */
+  --accent-right: #fca5a5;  /* Subdued terracotta for Right perspective metadata */
+  --accent-neutral: #a7f3d0;/* Soft sage for verified consensus */
+
+  --font-sans: -apple-system, BlinkMacSystemFont, "Inter", "SF Pro Display", "Neue Haas Grotesk", "Helvetica Neue", sans-serif;
+  --font-serif: "Newsreader", "Charter", "Georgia", serif;
+  --font-mono: "SF Mono", "JetBrains Mono", "Geist Mono", monospace;
+
+  --max-width: 1360px;
+  --gutter: 2rem;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Typography Defaults */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  color: var(--text-primary);
+}
+
+p {
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+button {
+  background: none;
+  border: none;
+  font-family: inherit;
+  color: inherit;
+  outline: none;
+  cursor: pointer;
+}
+
+input, textarea {
+  font-family: inherit;
+  outline: none;
+  background: transparent;
+  color: var(--text-primary);
+}
+
+/* Minimalist Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3f3f46;
+}
+
+/* Global Selection */
+::selection {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
