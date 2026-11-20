@@ -1,0 +1,66 @@
+{
+  "test_cases": [
+    {
+      "id": "clean_energy_treaty",
+      "topic": "Clean Energy Transformation & Domestic Mineral Accord",
+      "source_a": {
+        "title": "Historic Clean Energy Package Passes with Unprecedented Climate Investments",
+        "publisher": "The Guardian",
+        "bias": "LEFT",
+        "bias_score": -65,
+        "text": "The multilateral measure authorizes $420 billion in pooled public guarantees and subsidies distributed across 12 signatory nations over an eight-year timeline. Signatories are mandated to source at least 35% of all refined rare-earth elements domestically. The pact creates 680,000 direct unionized jobs and penalizes corporate polluters exceeding emissions thresholds."
+      },
+      "source_b": {
+        "title": "Controversial $420B Spending Package Strains National Debt and Grid Reliability",
+        "publisher": "The Wall Street Journal",
+        "bias": "RIGHT",
+        "bias_score": 68,
+        "text": "The measure was approved by a 68% parliamentary majority. National budget offices project the accord will add $132 billion in cumulative sovereign borrowing requirements over three years. Regional power grid operators explicitly submitted formal caveats detailing reserve capacity shortfalls during winter peaks. Border carbon adjustments will impose tariffs on non-compliant steel and aluminum starting Q1 2027."
+      },
+      "expected_consensus_subset": [
+        "$420 billion",
+        "12 signatory nations",
+        "eight-year"
+      ],
+      "expected_left_omissions_subset": [
+        "borrowing",
+        "winter"
+      ],
+      "expected_right_omissions_subset": [
+        "jobs",
+        "penalties"
+      ]
+    },
+    {
+      "id": "frontier_ai_registry",
+      "topic": "Global Frontier Compute & Datacenter Standards Accord",
+      "source_a": {
+        "title": "Crucial Frontier AI Accord Restrains Big Tech Megacorporations to Safeguard Democracy",
+        "publisher": "The Atlantic",
+        "bias": "LEFT",
+        "bias_score": -55,
+        "text": "Twenty-four member states ratified the Global Frontier Compute Accord. Mandatory safety audits apply exclusively to AI models trained with greater than 10^26 floating point operations (FLOPs). Datacenters housing over 50,000 synchronized accelerator chips must register geographical footprints. The treaty mandates independent red-teaming against automated biochemical synthesis and establishes whistleblower protections."
+      },
+      "source_b": {
+        "title": "Draconian International Compute Bureaucracy Cedes AI Supremacy to Foreign Rivals",
+        "publisher": "Bloomberg",
+        "bias": "RIGHT",
+        "bias_score": 60,
+        "text": "Twenty-four national delegations signed the compute accord, which takes legal effect within 180 days. Datacenter clusters with over 50,000 GPUs must register. Open-weight models below 10^26 FLOPs are exempt. Violations carry monetary fines of up to 4% of global corporate revenue. Intelligence assessments warn that rival non-signatory states maintain unmonitored frontier clusters, while compliance costs consume 14% of early-stage venture capital."
+      },
+      "expected_consensus_subset": [
+        "10^26",
+        "50,000",
+        "24"
+      ],
+      "expected_left_omissions_subset": [
+        "compliance",
+        "foreign"
+      ],
+      "expected_right_omissions_subset": [
+        "biochemical",
+        "whistleblower"
+      ]
+    }
+  ]
+}

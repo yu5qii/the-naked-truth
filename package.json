@@ -7,7 +7,11 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "dev:backend": "uvicorn backend.main:app --reload --port 8000"
+    "dev:backend": "uvicorn backend.main:app --reload --port 8000",
+    "test:security": "pytest tests/security/ -c tests/pytest.ini",
+    "test:e2e": "playwright test --config=tests/playwright.config.ts",
+    "test:audit": "npm audit --audit-level=high",
+    "test:all": "bash tests/run_all_checks.sh"
   },
   "dependencies": {
     "gsap": "^3.12.5",
@@ -19,6 +23,7 @@
     "zustand": "^4.5.5"
   },
   "devDependencies": {
+    "@playwright/test": "^1.65.1",
     "@types/node": "^20.17.0",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",

@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import '@/styles/globals.scss';
 import { Header } from '@/components/minimal/Header';
 import { UrlAnalyzerModal } from '@/components/minimal/UrlAnalyzerModal';
+import { BackgroundCanvas } from '@/components/canvas/BackgroundCanvas';
 
 export const metadata: Metadata = {
   title: 'The Naked Truth — Anti-Echo Chamber News Hub',
@@ -17,6 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <BackgroundCanvas />
         <Header />
         <main>{children}</main>
         <UrlAnalyzerModal />

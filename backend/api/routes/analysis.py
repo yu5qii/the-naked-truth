@@ -1,6 +1,6 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Request, Response
 from backend.models.schemas import AnalysisRequest, AnalysisResponse, NewsSourceSchema
-from backend.services.scraper import ScraperService
+from backend.services.scraper import ScraperService, SSRFSecurityError
 from backend.services.bias_engine import BiasEngine
 from backend.services.tinyllama_service import TinyLlamaService
 
@@ -15,9 +15,29 @@ async def distill_truth(request: AnalysisRequest):
     """
     Main endpoint: Takes user article URL, scrapes content, identifies bias,
     locates counterpart coverage, and executes TinyLlama 1.1B 4-bit quantized inference.
+    Enforces strict SSRF protection and sanitization.
     """
     url = request.url
-    article_a = scraper.extract_article(url)
+
+    # Enforce SSRF validation
+    try:
+        scraper.validate_url_safety(url)
+    except SSRFSecurityError as ssrf_err:
+        raise HTTPException(
+            status_code=400,
+            detail=f"SSRF Protection: Access to URL is blocked. {str(ssrf_err)}"
+        )
+
+    try:
+        article_a = scraper.extract_article(url)
+    except SSRFSecurityError as ssrf_err:
+        raise HTTPException(
+            status_code=400,
+            detail=f"SSRF Protection: Access to URL is blocked. {str(ssrf_err)}"
+        )
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=f"Failed to fetch article: {str(e)}")
+
     if not article_a:
         raise HTTPException(status_code=400, detail="Unable to extract article from provided URL.")
 

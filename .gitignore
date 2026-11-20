@@ -86,6 +86,10 @@ htmlcov/
 coverage.xml
 *.cover
 nosetests.xml
+test-results/
+playwright-report/
+tests/playwright-report/
+.last-run.json
 
 # ------------------------------------------
 # Database & Redis State

@@ -1,0 +1,48 @@
+{
+  "project_name": "The Naked Truth — Anti-Echo Chamber News Reader",
+  "version": "1.0.0",
+  "server_endpoints": {
+    "frontend": "http://localhost:3000",
+    "backend": "http://localhost:8000"
+  },
+  "critical_routes": [
+    {
+      "path": "/",
+      "name": "Global News Hub (Homepage)",
+      "expected_status": 200
+    },
+    {
+      "path": "/article/clean-energy-accord",
+      "name": "Lead Article Detail & Split Perspectives",
+      "expected_status": 200
+    },
+    {
+      "path": "/article/frontier-ai-treaty",
+      "name": "Frontier AI Article Detail & Split Perspectives",
+      "expected_status": 200
+    }
+  ],
+  "critical_selectors": {
+    "header_brand": "header a[href=\"/\"]",
+    "canvas_webgl": "canvas#r3f-canvas[data-testid=\"r3f-canvas\"]",
+    "news_grid_lead": "a[href*=\"/article/clean-energy-accord\"]",
+    "news_grid_items": "a[href*=\"/article/\"]",
+    "article_ai_overview": "h1, [class*=\"aiOverviewCard\"]",
+    "split_perspective_section": "[class*=\"splitSection\"]",
+    "export_brief_button": "button:has-text(\"Export Brief\")",
+    "analyze_url_button": "button:has-text(\"Analyze URL\")"
+  },
+  "required_security_headers": {
+    "x-frame-options": "DENY",
+    "x-content-type-options": "nosniff",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "content-security-policy": "default-src 'self'",
+    "strict-transport-security": "max-age="
+  },
+  "integrity_benchmarks": {
+    "max_load_time_ms": 6000,
+    "max_allowed_console_errors": 0,
+    "max_allowed_page_crashes": 0,
+    "require_active_webgl_context": true
+  }
+}
